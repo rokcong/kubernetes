@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata: 
+  name: ds-nginx
+spec:
+  selector: 
+    matchLabels:
+      app: webui
+  template:
+    metadata:
+      name: ds-pod
+      labels:
+        app: webui
+    spec:
+      containers:
+        - name: ds-container
+          image: nginx:1.14
+          ports:
+          - containerPort: 80
+    
